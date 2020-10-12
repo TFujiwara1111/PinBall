@@ -42,14 +42,20 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
 
-    { 
+    { //pointTextに点数を表示
+        pointText.GetComponent<Text>().text = score + "点";
+
         if (other.gameObject.tag == "SmallStarTag")
         {
-            score +=1;
+            score += 1;
         }
-        else if(other.gameObject.tag == "LargeStarTag")
+        else if (other.gameObject.tag == "LargeStarTag"||tag=="SmallcloudTag")
         {
-            score +=10;
+            score += 5;
+        }
+        else if (other.gameObject.tag == "LargeCloudTag")
+        {
+            score += 10;
         }
     }
 }
